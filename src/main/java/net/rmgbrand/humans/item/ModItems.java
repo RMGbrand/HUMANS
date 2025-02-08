@@ -17,6 +17,10 @@ public class ModItems {
            () -> new ForgeSpawnEggItem(ModEntites.MAN, 0x00afaf, 0x3f2a15,
                    new Item.Properties()));
 
+   public static final RegistryObject<Item> WOMAN_SPAWN_EGG = ITEMS.register("woman_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntites.WOMAN, 0x8cbe8a, 0xeb983f,
+                    new Item.Properties()));
+
    public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

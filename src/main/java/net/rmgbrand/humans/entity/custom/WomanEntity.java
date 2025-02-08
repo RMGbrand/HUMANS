@@ -14,12 +14,12 @@ import net.minecraft.world.level.Level;
 import net.rmgbrand.humans.entity.ModEntites;
 import org.jetbrains.annotations.Nullable;
 
-public class ManEntity extends Animal {
+public class WomanEntity extends Animal {
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    public ManEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
+    public WomanEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
@@ -41,8 +41,6 @@ public class ManEntity extends Animal {
                 .add(Attributes.ARMOR_TOUGHNESS, 0.1f)
                 .add(Attributes.ATTACK_DAMAGE,1F);
     }
-
-
 
     private void setupAnimationStates() {
         if (this.idleAnimationTimeout <= 0) {
@@ -79,4 +77,3 @@ public class ManEntity extends Animal {
         return null;
     }
 }
-

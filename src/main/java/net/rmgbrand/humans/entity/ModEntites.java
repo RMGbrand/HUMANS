@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rmgbrand.humans.Humans;
 import net.rmgbrand.humans.entity.custom.ManEntity;
+import net.rmgbrand.humans.entity.custom.WomanEntity;
 
 public class ModEntites {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
@@ -16,6 +17,11 @@ public class ModEntites {
     public static final RegistryObject<EntityType<ManEntity>> MAN =
             ENTITY_TYPES.register("man", () -> EntityType.Builder.of(ManEntity::new, MobCategory.CREATURE)
                     .sized(1f,2f).build("man"));
+
+    public static final RegistryObject<EntityType<WomanEntity>> WOMAN =
+            ENTITY_TYPES.register("women", () -> EntityType.Builder.of(WomanEntity::new, MobCategory.CREATURE)
+                    .sized(1f,2f).build("woman"));
+
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

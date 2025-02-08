@@ -8,4 +8,7 @@ public class ModModelLayers {
     public static final ModelLayerLocation MAN_LAYER = new ModelLayerLocation(
             new ResourceLocation(Humans.MOD_ID,"man_layer"),"man_layer");
 
+    public static final ModelLayerLocation WOMAN_LAYER = new ModelLayerLocation(
+            new ResourceLocation(Humans.MOD_ID,"woman_layer"),"woman_layer");
+
 }

@@ -19,6 +19,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.humans_tab"))
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.MAN_SPAWN_EGG.get());
+                        output.accept(ModItems.WOMAN_SPAWN_EGG.get());
 
 
 

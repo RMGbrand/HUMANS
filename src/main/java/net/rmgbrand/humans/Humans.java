@@ -14,6 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.rmgbrand.humans.entity.ModEntites;
 import net.rmgbrand.humans.entity.client.ManRenderer;
+import net.rmgbrand.humans.entity.client.WomanRenderer;
 import net.rmgbrand.humans.item.ModCreativeModeTabs;
 import net.rmgbrand.humans.item.ModItems;
 import org.slf4j.Logger;
@@ -59,6 +60,7 @@ public class Humans {
         public static void onClientSetup(FMLClientSetupEvent event) {
 
             EntityRenderers.register(ModEntites.MAN.get(), ManRenderer::new);
+            EntityRenderers.register(ModEntites.WOMAN.get(), WomanRenderer::new);
         }
     }
 }

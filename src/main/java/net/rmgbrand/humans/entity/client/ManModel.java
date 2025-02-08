@@ -58,8 +58,8 @@ public class ManModel<T extends ManEntity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(entity, netHeadYaw, headPitch, ageInTicks);
 
-		this.animateWalk(ModAnimationDefinitions.WALKING_ANIMATION, limbSwing, limbSwingAmount, 1.5f,2.5f);
-		this.animate(entity.idleAnimationState, ModAnimationDefinitions.IDLE_ANIMATION, ageInTicks, 1f);
+		this.animateWalk(ModAnimationDefinitions.MAN_WALKING_ANIMATION, limbSwing, limbSwingAmount, 1.5f,2.5f);
+		this.animate(entity.idleAnimationState, ModAnimationDefinitions.MAN_IDLE_ANIMATION, ageInTicks, 1f);
 	}
 
 	private void applyHeadRotation(ManEntity pEntity, float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
