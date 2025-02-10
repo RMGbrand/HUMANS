@@ -2,13 +2,11 @@ package net.rmgbrand.humans.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 import net.rmgbrand.humans.entity.animations.ModAnimationDefinitions;
 import net.rmgbrand.humans.entity.custom.ManEntity;
 
@@ -16,20 +14,20 @@ public class ManModel<T extends ManEntity> extends HierarchicalModel<T> {
 
 	private final ModelPart man;
 	private final ModelPart Head;
-	private final ModelPart LLeg;
 	private final ModelPart Body;
 	private final ModelPart RArm;
 	private final ModelPart LArm;
 	private final ModelPart RLeg;
+	private final ModelPart LLeg;
 
 	public ManModel(ModelPart root) {
 		this.man = root.getChild("man");
 		this.Head = this.man.getChild("Head");
-		this.LLeg = this.man.getChild("LLeg");
 		this.Body = this.man.getChild("Body");
 		this.RArm = this.man.getChild("RArm");
 		this.LArm = this.man.getChild("LArm");
 		this.RLeg = this.man.getChild("RLeg");
+		this.LLeg = this.man.getChild("LLeg");
 	}
 
 	public static LayerDefinition createBodyLayer() {
@@ -37,8 +35,6 @@ public class ManModel<T extends ManEntity> extends HierarchicalModel<T> {
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
 		PartDefinition man = partdefinition.addOrReplaceChild("man", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
-
-		PartDefinition LLeg = man.addOrReplaceChild("LLeg", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, -12.0F, 0.0F));
 
 		PartDefinition Head = man.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -24.0F, 0.0F));
 
@@ -50,6 +46,8 @@ public class ManModel<T extends ManEntity> extends HierarchicalModel<T> {
 
 		PartDefinition RLeg = man.addOrReplaceChild("RLeg", CubeListBuilder.create().texOffs(16, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, -12.0F, 0.0F));
 
+		PartDefinition LLeg = man.addOrReplaceChild("LLeg", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, -12.0F, 0.0F));
+
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
@@ -58,7 +56,7 @@ public class ManModel<T extends ManEntity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(entity, netHeadYaw, headPitch, ageInTicks);
 
-		this.animateWalk(ModAnimationDefinitions.MAN_WALKING_ANIMATION, limbSwing, limbSwingAmount, 1.5f,2.5f);
+		this.animateWalk(ModAnimationDefinitions.MAN_WALKING_ANIMATION, limbSwing, limbSwingAmount, 2f, 2.5f);
 		this.animate(entity.idleAnimationState, ModAnimationDefinitions.MAN_IDLE_ANIMATION, ageInTicks, 1f);
 	}
 

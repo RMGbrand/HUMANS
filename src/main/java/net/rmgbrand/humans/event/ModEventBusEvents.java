@@ -12,8 +12,6 @@ import net.rmgbrand.humans.entity.custom.ManEntity;
 import net.rmgbrand.humans.entity.custom.WomanEntity;
 import net.rmgbrand.humans.entity.layers.ModModelLayers;
 
-import javax.swing.text.html.parser.Entity;
-
 @Mod.EventBusSubscriber(modid = Humans.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
     @SubscribeEvent
